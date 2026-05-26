@@ -1,0 +1,11 @@
+flowchart TD
+    A([Start]) --> B[User logs in]
+    B --> C[Scan or select bin]
+    C --> D[Validate bin and part details]
+    D --> E[Update bin status]
+    E --> F[Generate report]
+    F --> G{Data valid?}
+    G -- Yes --> H[Save / Submit]
+    G -- No --> I[Show error and correct data]
+    I --> B
+    H --> J([End])

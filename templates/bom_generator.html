@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BOM PPTX Generator</title>
+  <style>
+    :root {
+      --bg: #f4f5f2;
+      --panel: #ffffff;
+      --ink: #202b35;
+      --muted: #5e6c77;
+      --line: #d7ddd7;
+      --green: #8ed149;
+      --green-dark: #5f982f;
+      --black: #111111;
+      --blue: #2f83d1;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      background: var(--black);
+      color: white;
+      padding: 16px 24px;
+      border-bottom: 6px solid var(--green);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 22px;
+      letter-spacing: 0;
+    }
+
+    main {
+      width: min(1180px, calc(100vw - 28px));
+      margin: 18px auto 36px;
+      display: grid;
+      grid-template-columns: 1fr 310px;
+      gap: 16px;
+    }
+
+    form,
+    aside {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .field {
+      margin-bottom: 14px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      border: 1px solid #cfd7cf;
+      border-radius: 6px;
+      padding: 10px 11px;
+      font: inherit;
+      color: var(--ink);
+      background: white;
+    }
+
+    textarea {
+      min-height: 185px;
+      resize: vertical;
+      line-height: 1.42;
+    }
+
+    .api {
+      background: #f6f8f4;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+      margin: 14px 0;
+    }
+
+    button,
+    .download {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      border: 0;
+      border-radius: 6px;
+      padding: 10px 14px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      background: var(--black);
+      color: white;
+      text-decoration: none;
+    }
+
+    .download {
+      width: 100%;
+      margin-top: 9px;
+      background: var(--green-dark);
+    }
+
+    .secondary {
+      background: #e8eee8;
+      color: var(--ink);
+      border: 1px solid #cfd7cf;
+    }
+
+    .status,
+    .error {
+      border-radius: 6px;
+      padding: 10px 11px;
+      margin-bottom: 12px;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    .status {
+      background: #eef7e8;
+      border: 1px solid #c9e5b8;
+    }
+
+    .error {
+      background: #fff0ef;
+      border: 1px solid #e2b6b1;
+    }
+
+    aside h2 {
+      margin: 0 0 10px;
+      font-size: 16px;
+    }
+
+    ol {
+      margin: 0;
+      padding-left: 20px;
+      line-height: 1.55;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    code {
+      background: #edf1ed;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+
+    @media (max-width: 900px) {
+      main,
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>BOM PPTX Generator</h1>
+  </header>
+
+  <main>
+    <form method="post" action="/generate">
+      {% if error %}
+        <div class="error">{{ error }}</div>
+      {% endif %}
+
+      {% if ai_status %}
+        <div class="status">{{ ai_status }}</div>
+      {% endif %}
+
+      <div class="grid">
+        <div class="field">
+          <label for="project_code">Project Code</label>
+          <input id="project_code" name="project_code" placeholder="#505" />
+        </div>
+        <div class="field">
+          <label for="customer_name">Customer Name</label>
+          <input id="customer_name" name="customer_name" placeholder="PCI / Customer Name" />
+        </div>
+        <div class="field">
+          <label for="solution_name">Solution Name</label>
+          <input id="solution_name" name="solution_name" placeholder="Bin Management System" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="requirement">Customer Requirement</label>
+        <textarea id="requirement" name="requirement" placeholder="Paste the customer requirement here..."></textarea>
+      </div>
+
+      <div class="field">
+        <label for="proposed_solution">Proposed Solution</label>
+        <textarea id="proposed_solution" name="proposed_solution" placeholder="Paste the proposed solution here, or leave blank and the AI will draft it..."></textarea>
+      </div>
+
+      <div class="api">
+        <div class="field">
+          <label for="api_key">OpenRouter API Key</label>
+          <input id="api_key" name="api_key" type="password" placeholder="Optional. If blank, the app uses .env or fallback mode." />
+        </div>
+        <div class="field" style="margin-bottom:0;">
+          <label for="max_tokens">Max AI Output Tokens</label>
+          <input id="max_tokens" name="max_tokens" type="number" min="500" max="4000" value="{{ default_max_tokens or 2500 }}" />
+        </div>
+      </div>
+
+      <button type="submit">Generate Full BOM PPTX</button>
+    </form>
+
+    <aside>
+      <h2>Output</h2>
+      {% if pptx_name %}
+        <a class="download" href="/download/{{ pptx_name }}">Download PPTX</a>
+        <a class="download secondary" href="/download/{{ mmd_name }}">Download Mermaid</a>
+        <a class="download secondary" href="/download/{{ json_name }}">Download JSON</a>
+      {% else %}
+        <ol>
+          <li>Paste requirement.</li>
+          <li>Add proposed solution if available.</li>
+          <li>Paste API key or use <code>.env</code>.</li>
+          <li>Generate the BOM PPTX.</li>
+        </ol>
+      {% endif %}
+
+      <h2 style="margin-top:18px;">Slides Generated</h2>
+      <ol>
+        <li>Project Title</li>
+        <li>Requirements / Problem Statement</li>
+        <li>Proposed Solution</li>
+        <li>Technology</li>
+        <li>Process Flow</li>
+        <li>Solution Illustration</li>
+        <li>UI Mockups</li>
+        <li>Benefits</li>
+        <li>Prerequisites</li>
+        <li>Delivery Schedule</li>
+        <li>Customer Scope & Importants</li>
+        <li>Contact Matrix</li>
+        <li>Business Model</li>
+        <li>Terms & Conditions</li>
+        <li>Thank You</li>
+      </ol>
+
+      <h2 style="margin-top:18px;">AI Models</h2>
+      <ol>
+        {% for model in models %}
+          <li>{{ model }}</li>
+        {% endfor %}
+      </ol>
+
+      <h2 style="margin-top:18px;">Credit Note</h2>
+      <ol>
+        <li>Full BOM AI needs about 2,000-3,500 output tokens.</li>
+        <li>If OpenRouter says only a few tokens are affordable, add credits or increase the key weekly limit.</li>
+        <li>The app still creates a fallback PPTX without AI.</li>
+      </ol>
+    </aside>
+  </main>
+</body>
+</html>

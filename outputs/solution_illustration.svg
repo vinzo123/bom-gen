@@ -1,0 +1,88 @@
+<svg width="1280" height="720" viewBox="0 0 1280 720" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="7" flood-color="#9aa4ad" flood-opacity="0.45"/>
+    </filter>
+    <marker id="arrowDark" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#4a5963"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#2f83d1"/>
+    </marker>
+    <marker id="arrowTeal" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#18a99b"/>
+    </marker>
+    <marker id="arrowBrown" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#8d826f"/>
+    </marker>
+  </defs>
+
+  <rect width="1280" height="720" fill="#f8f8f6"/>
+  <path d="M0 0 H410 L520 32 H1280 V0 Z" fill="#111"/>
+  <path d="M0 0 H390 L520 32 H0 Z" fill="#92d34d"/>
+  <path d="M0 654 H750 L930 720 H0 Z" fill="#92d34d"/>
+  <path d="M750 654 H1280 V720 H930 Z" fill="#111"/>
+
+  <text x="640" y="91" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700">SOLUTION ILLUSTRATION</text>
+  <rect x="70" y="105" width="1140" height="480" fill="#fff" stroke="#111" stroke-width="1.4"/>
+
+  <rect x="78" y="365" width="150" height="66" rx="4" fill="#d5e0e8" filter="url(#shadow)"/>
+  <text x="153" y="405" text-anchor="middle" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#2f3d49">MAIL SERVER</text>
+
+  <rect x="360" y="250" width="190" height="286" rx="4" fill="#cbd8e2" filter="url(#shadow)"/>
+  <text x="455" y="246" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#263746">SERVER</text>
+  <text x="373" y="284" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#263746">DESPATCH SEQUENCE</text>
+  <text x="373" y="306" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#263746">MANAGEMENT SYSTEM</text>
+  <text x="455" y="350" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#263746">WEB</text>
+  <line x1="366" y1="376" x2="544" y2="376" stroke="#4e6574" stroke-width="4" stroke-dasharray="12 10"/>
+  <text x="455" y="403" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#263746">SEQUENCE ENGINE</text>
+  <line x1="366" y1="420" x2="544" y2="420" stroke="#4e6574" stroke-width="4" stroke-dasharray="12 10"/>
+  <circle cx="455" cy="462" r="25" fill="#4aa564"/>
+  <text x="455" y="470" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="#fff">⚙</text>
+  <text x="455" y="498" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#263746">IIS</text>
+  <text x="455" y="521" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#263746">DATA BASE</text>
+
+  <line x1="238" y1="374" x2="350" y2="374" stroke="#4a5963" stroke-width="4" marker-end="url(#arrowDark)"/>
+  <line x1="350" y1="418" x2="238" y2="418" stroke="#4a5963" stroke-width="4" marker-end="url(#arrowDark)"/>
+
+  <path d="M557 376 H620 Q635 376 635 360 V245 Q635 230 650 230 H790" fill="none" stroke="#8d826f" stroke-width="4" marker-end="url(#arrowBrown)"/>
+  <line x1="557" y1="399" x2="800" y2="399" stroke="#2f83d1" stroke-width="4" marker-end="url(#arrowBlue)"/>
+  <path d="M557 421 H620 Q635 421 635 436 V514 Q635 528 650 528 H812" fill="none" stroke="#18a99b" stroke-width="4" marker-end="url(#arrowTeal)"/>
+
+  <text x="890" y="200" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#ad6266">DSMS</text>
+  <text x="800" y="236" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#ad6266">DESPATCH SEQUENCE VERIFICATION</text>
+  <rect x="1028" y="123" width="44" height="78" fill="#edf1f2" stroke="#bcc7cb"/>
+  <path d="M1088 126 h32 v80 h-32 z" fill="#111"/>
+  <g fill="#dff5e9">
+    <rect x="1064" y="195" width="26" height="22"/><rect x="1095" y="195" width="26" height="22"/>
+    <rect x="1064" y="220" width="26" height="22"/><rect x="1095" y="220" width="26" height="22"/>
+  </g>
+  <circle cx="1051" cy="170" r="14" fill="#20323b"/>
+  <rect x="1042" y="184" width="22" height="45" fill="#18a56f"/>
+  <line x1="990" y1="238" x2="1158" y2="238" stroke="#c9c9c9"/>
+  <path d="M965 165 l47 -10 l8 34 l-47 10 z" fill="#111"/>
+  <path d="M981 211 h44 v18 h-44 z" fill="#111"/>
+  <path d="M980 189 q-12 -10 -7 -22" fill="none" stroke="#111" stroke-width="3"/>
+
+  <text x="903" y="376" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#2f83d1">DSMS</text>
+  <text x="822" y="405" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#2f83d1">DESPATCH VEHICLE MAPPING</text>
+  <rect x="1036" y="360" width="110" height="58" fill="#b88b63"/>
+  <rect x="1002" y="378" width="48" height="42" fill="#0e4342"/>
+  <circle cx="1020" cy="425" r="8" fill="#111"/><circle cx="1108" cy="425" r="8" fill="#111"/>
+  <line x1="1000" y1="425" x2="1160" y2="425" stroke="#333" stroke-width="3"/>
+
+  <line x1="925" y1="418" x2="925" y2="493" stroke="#5d6870" stroke-width="4" stroke-dasharray="12 10" marker-end="url(#arrowDark)"/>
+  <text x="905" y="519" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#18a99b">DSMC</text>
+  <text x="996" y="519" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#18a99b">MOBILE</text>
+  <text x="822" y="548" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#18a99b">CUSTOMER END TROLLEY RECEIVING</text>
+  <rect x="957" y="460" width="32" height="58" rx="4" fill="#45687a"/>
+  <rect x="962" y="468" width="22" height="38" fill="#eff7f7"/>
+  <circle cx="973" cy="489" r="8" fill="#26b99a"/>
+  <path d="M969 488 l4 5 l8 -10" fill="none" stroke="#fff" stroke-width="3"/>
+  <rect x="1098" y="482" width="82" height="62" fill="#e7282c"/>
+  <path d="M1180 482 l34 20 v42 l-34 -18 z" fill="#d6dce2"/>
+  <circle cx="1168" cy="550" r="8" fill="#333"/><circle cx="1200" cy="550" r="8" fill="#333"/>
+
+  <text x="85" y="687" font-family="Arial, sans-serif" font-size="19" font-weight="700" letter-spacing="12">ECOSOFT ZOLUTIONS PVT LTD</text>
+  <text x="85" y="707" font-family="Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="10">Formerly Known as HNS INFOTECH PVT LTD</text>
+</svg>

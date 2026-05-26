@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>#362_MEF_BIN Management System</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f7f7f4;
+      color: #202124;
+    }
+    main {
+      max-width: 1100px;
+      margin: 32px auto;
+      padding: 24px;
+      background: #ffffff;
+      border: 1px solid #deded8;
+      border-radius: 8px;
+    }
+    h1 {
+      font-size: 22px;
+      margin: 0 0 24px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>#362_MEF_BIN Management System</h1>
+    <pre class="mermaid">
+flowchart TD
+    A([Start]) --> B[User logs in]
+    B --> C[Scan or select bin]
+    C --> D[Validate bin and part details]
+    D --> E[Update bin status]
+    E --> F[Generate report]
+    F --> G{Data valid?}
+    G -- Yes --> H[Save / Submit]
+    G -- No --> I[Show error and correct data]
+    I --> B
+    H --> J([End])
+    </pre>
+  </main>
+  <script type="module">
+    import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+    mermaid.initialize({ startOnLoad: true, theme: "default" });
+  </script>
+</body>
+</html>

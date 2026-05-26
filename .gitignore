@@ -1,0 +1,5 @@
+.env
+.venv/
+outputs/generated_boms/
+__pycache__/
+*.pyc
